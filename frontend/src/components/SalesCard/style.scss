@@ -1,0 +1,57 @@
+.card {
+    background: #283142;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 900px;
+    h2 {
+        color: #676FFF;
+    }
+    
+    .inputs {
+        input {
+            background-color: #384459;
+            border: unset;
+            margin: 3px;
+            color: #fff;
+            height: 30px;
+            padding: 10px;
+            border: solid 1px #676FFF;
+            border-radius: 3px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+    }
+}
+
+table {
+    border-spacing: 0;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    color: #CFCFCF;
+    width: 100%;
+    border-collapse: collapse;
+    th {
+        font-weight: bolder;
+        padding: 5px 10px;
+    }
+    td {
+        padding: 20px 10px;
+        
+    }
+    tbody {
+        tr {
+            border-top: 1px solid;
+            &:nth-child(odd){
+            background: #242C3B;
+            }
+            &:hover {
+                background-color: #384459;
+            }
+        }
+        
+    }
+
+}

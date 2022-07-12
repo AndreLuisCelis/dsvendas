@@ -1,0 +1,19 @@
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    background: linear-gradient(180deg, #102347 0%, #181818 100%);
+    img {
+        width: 235px;
+    }
+    h1 {
+        text-align: center;
+        margin: 5px 0;
+    }
+    p {
+        font-weight: 100;
+        font-size: 14px;
+    }
+}
