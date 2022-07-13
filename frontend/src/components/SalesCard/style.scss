@@ -37,6 +37,25 @@ table {
         font-weight: bolder;
         padding: 5px 10px;
     }
+    @media(max-width: 576px){
+        th:nth-child(1), th:nth-child(4), th:nth-child(5){
+            display: none;
+        }
+
+        td:nth-child(1), td:nth-child(4), td:nth-child(5){
+            display: none;
+        }
+    }
+
+    @media(max-width: 360px){
+        th:nth-child(1),th:nth-child(2),th:nth-child(4), th:nth-child(5){
+            display: none;
+        }
+
+        td:nth-child(1),td:nth-child(2), td:nth-child(4), td:nth-child(5){
+            display: none;
+        }
+    }
     td {
         padding: 20px 10px;
         
