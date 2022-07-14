@@ -1,0 +1,5 @@
+package com.celisapp.dsmeta.config;
+
+public class SecurityConfig {
+
+}
