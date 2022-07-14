@@ -1,0 +1,20 @@
+package com.celisapp.dsmeta.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.celisapp.dsmeta.entities.Sales;
+
+
+public class SalesService {
+	
+	
+	
+	public List<Sales> findSales(){
+		Sales sales = new Sales();
+		List<Sales>salesList = new ArrayList<Sales>();
+		salesList.add(sales);
+		return salesList;
+	}
+ 
+}

@@ -1,0 +1,5 @@
+package com.celisapp.dsmeta.repositories;
+
+public interface SalesRepository {
+
+}

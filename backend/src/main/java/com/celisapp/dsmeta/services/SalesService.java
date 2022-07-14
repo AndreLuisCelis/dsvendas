@@ -1,0 +1,24 @@
+package com.celisapp.dsmeta.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.celisapp.dsmeta.entities.Sales;
+import com.celisapp.dsmeta.repositories.SalesRepository;
+
+
+@Service
+public class SalesService {
+	
+	
+	@Autowired
+	SalesRepository salesRepository;
+	
+	public List<Sales> findSales(){
+		List<Sales>salesList = salesRepository.findAll();
+		return salesList;
+	}
+ 
+}

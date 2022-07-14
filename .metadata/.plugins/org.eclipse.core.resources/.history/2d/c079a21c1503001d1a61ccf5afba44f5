@@ -1,0 +1,5 @@
+package com.celisapp.dsmeta.services;
+
+public class SalesService {
+
+}
