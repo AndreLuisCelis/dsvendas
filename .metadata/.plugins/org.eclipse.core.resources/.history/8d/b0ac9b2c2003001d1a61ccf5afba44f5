@@ -28,10 +28,8 @@ public class SalesService {
 		LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
 		DateTimeFormatter f = new DateTimeFormatterBuilder().parseCaseInsensitive()
 	            .append(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toFormatter();
-		
-		LocalDate min = minDate.equals("")?today.minusDays(365):LocalDate.parse(minDate, f);
-		LocalDate max = maxDate.equals("")?today: LocalDate.parse(maxDate, f);
-		
+		LocalDate min = LocalDate.parse(minDate, f);
+		LocalDate max = LocalDate.parse(maxDate, f);
 		Page<Sale>salesList = salesRepository.findSales(min, max, pageable);
 		return salesList;
 	}

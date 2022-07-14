@@ -1,0 +1,29 @@
+package com.celisapp.dsmeta.services;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.celisapp.dsmeta.entities.Sales;
+import com.celisapp.dsmeta.repositories.SalesRepository;
+
+
+@Service
+public class SalesService {
+	
+	
+	@Autowired
+	SalesRepository salesRepository;
+	
+	public Page<Sales> findSales( String minDate, String maxDate, Pageable pageable){
+		
+		LocalDate min = LocalDate.parse(minDate);
+		LocalDate max = LocalDate.parse(maxDate);
+		Page<Sales>salesList = salesRepository.findSales(min, max, pageable);
+		return salesList;
+	}
+ 
+}
