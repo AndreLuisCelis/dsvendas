@@ -2571,3 +2571,6 @@ java.lang.Exception
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-16 16:51:42.306
 !MESSAGE executing callback sts4.classpath.dnrpIzvA SUCCESS [done]
+
+!ENTRY org.eclipse.ui 2 2 2022-07-16 17:11:06.951
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
