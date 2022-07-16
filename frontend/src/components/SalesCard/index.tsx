@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Sale } from "../../models/sale";
+import { BASE_URL } from "../../Utils/request";
 
 import NotificationButton from "../NotificationButton";
 
@@ -9,15 +11,18 @@ import './style.scss';
 
 function SalesCard() {
 
-    const [minDate , setMindate]= useState(new Date());
-    const [maxDate , setMaxDate] = useState(new Date());
+    const [minDate, setMindate] = useState(new Date());
+    const [maxDate, setMaxDate] = useState(new Date());
 
-    useEffect(()=> {
-        axios.get('http://localhost:8080/sales')
-        .then(res => {
-            console.log(res.data);
-        })
-    },[])
+    const [sales, setSale] = useState<Sale[]>([])
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/sales`)
+            .then(res => {
+                console.log(res.data);
+                setSale(res.data.content);
+            })
+    }, [])
     return (
         <div className="card">
             <h2>Vendas</h2>
@@ -33,7 +38,7 @@ function SalesCard() {
                 <div>
                     <DatePicker
                         selected={maxDate}
-                        onChange={(date: Date) => { setMaxDate(date)}}
+                        onChange={(date: Date) => { setMaxDate(date) }}
                         className="dsmeta-form-control"
                         dateFormat="dd/MM/yyyy"
                     />
@@ -55,35 +60,21 @@ function SalesCard() {
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>90-09-09</td>
-                            <td>Andre</td>
-                            <td>500</td>
-                            <td>15</td>
-                            <td>300</td>
-                            <td><NotificationButton /></td>
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <td>90-09-09</td>
-                            <td>Andre</td>
-                            <td>500</td>
-                            <td>15</td>
-                            <td>300</td>
-                            <td><NotificationButton /></td>
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <td>90-09-09</td>
-                            <td>Andre</td>
-                            <td>500</td>
-                            <td>15</td>
-                            <td>300</td>
-                            <td><NotificationButton /></td>
-                        </tr>
+                        {
+                            sales.map(sale => {
+                                return (
+                                    <tr key={sale.id}>
+                                        <td> {sale.id}</td>
+                                        <td>{new Date(sale.date).toLocaleDateString()}</td>
+                                        <td>{sale.sellerName}</td>
+                                        <td>{sale.deals}</td>
+                                        <td>{sale.visited}</td>
+                                        <td>R$ {sale.amount.toFixed(2)}</td>
+                                        <td><NotificationButton /></td>
+                                    </tr>
+                                )
+                            })
+                        }
                     </tbody>
                 </table>
             </div>
